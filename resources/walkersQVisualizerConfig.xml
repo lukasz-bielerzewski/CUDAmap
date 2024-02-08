@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- Visualizer configuration -->
+  <VisualizerConfig>
+  	<name>QGLVisualizer</name>
+        <parameters verbose="0" visualizeCollisions="false" visualizeFootholds="true" drawKinematicObjects="true" drawNormals="false" drawPolyFitt="true" displayTextStatus="true"></parameters>
+	<background red="1.0" green="1.0" blue="1.0" alpha="1.0"></background>
+    <pointCloud pointSize="5.0"></pointCloud>
+    <line lineWidth="6.0" red="1.0" green="0.0" blue="0.0" alpha="1.0"></line>
+	<rrtBegin draw="true" width="3.0" red="0.0" green="1.0" blue="0.0" alpha="1.0"></rrtBegin>
+    <rrtFinish draw="true" width="3.0" red="0.0" green="0.0" blue="1.0" alpha="1.0"></rrtFinish>
+  </VisualizerConfig>

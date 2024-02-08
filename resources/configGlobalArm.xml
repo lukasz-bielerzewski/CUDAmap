@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+  <environment>
+	<type>physx</type>
+	<config>physx.xml</config>
+  </environment>
+  
+  <Robot>
+<!--	<type>Atlas</type>
+	<config>Atlas/Atlas.xml</config>-->
+<!--         <type>MessorII</type> -->
+<!-- 	<config>MessorII/MessorII.xml</config> -->
+        <!--<type>MessorII_I</type>
+	<config>MessorII_I/MessorII.xml</config>-->
+        <!--<type>StarlETH</type>
+	<config>StarlETH/StarlETH.xml</config>-->
+        <!--<type>Robot1</type>
+	<config>Robot1/Robot1.xml</config>-->
+        <!--<type>Robot2</type>
+	<config>Robot2/Robot2.xml</config>-->
+        <type>SimpleArm</type> -->
+        <config>SimpleArm/SimpleArm.xml</config>
+  </Robot>
+
+  <MotionController>
+    <type>kinematic</type>
+    <config>../../resources/controllerMessor2.xml</config>
+  </MotionController>
+  
+  <Mapping>
+	<type>ElevationMap</type>
+	<config>terrain.xml</config>
+  </Mapping>
+  
+  <Planner>
+	<type>RRT</type>
+	<config>planner.xml</config>
+  </Planner>
+  
+  <Visualizer useVisualizer="true">
+	<type>QGLViewer</type>
+	<config>walkersQVisualizerConfig.xml</config>
+  </Visualizer>
+  
+  <ServerSimulator>
+	<type>BoostSockets</type>
+	<config>serverSimulator.xml</config>
+  </ServerSimulator>
+  
+  <Optimizer>
+    <name>CMAES</name>
+    <config>CMAES.xml</config>
+  </Optimizer>
+  
+  <HMIDevice>
+<!--     <name>None</name> --> <!--if none-->
+    <name>Gamepad</name>
+    <config>Gamepad.xml</config>
+  </HMIDevice>
+  

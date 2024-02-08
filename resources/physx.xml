@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Simulation configuration -->
+<global>
+    <gravity g="9.81"/>
+    <framerate fps="15000"/>
+    <slowdown step="0"/>
+    <joint_axies size="0.01"/>
+    <shadows visible="false"/>
+</global>
+
+<contact>
+    <parameters staticFriction="10.8731591" dynamicFriction="10.686548" restitution="0.0104"/>
+</contact>
+
+<!-- Joints parameters declaration -->
+<joints>
+    <projection linear="0.1" angular="0.1"/>
+</joints>
+
+<!-- Controller file -->
+<controller filename="controllerPID.xml"/>
+
+<!-- Terrain configuration file -->
+<terrain filename="terrain.xml"/>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- PSO parameters -->
+  <PSO>
+	<name>PSO</name>
+<!--         N       - dimensions no -->
+  <parameters verbose="0" N="3" particlesNo="50" maxEpoch="10" stopfitness="10e-6" c1="2" c2="2" speedLimit="0.1" breakIfNoProgressFor="5"></parameters>
+  <dim0 min="-0.2" max="0.45"></dim0> <!--range for the variable: z change-->
+  <dim1 min="-0.3" max="0.3"></dim1> <!--range for the variable: roll-->
+  <dim2 min="-0.3" max="0.3"></dim2> <!--range for the variable: pitch-->
+  </PSO>
+
+<!--strfitnessfct="frosenbrock"-->

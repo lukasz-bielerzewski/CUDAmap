@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<scene>
+    
+  <plane name="plane" type="plane">
+      <AxisOrigin xyzMin="-0.25 -0.25 0.5" xyzMax="0.25 0.25 2.5"/>
+      <AxisRPY rpyMin="1.0 0.0 -1.0" rpyMax="2.0 0.0 1.0"/>
+      <PlaneSize xyzMin="0.1 0.1 0.0" xyzMax="1.0 1.0 0.0"/>
+      <PlaneRot min="0.0" max="3.14"/>
+  </plane>
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </cameraPose>
+  
+</scene>

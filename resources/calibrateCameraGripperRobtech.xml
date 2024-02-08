@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- CMAES parameters -->
+  <CMAES>
+	<name>Cmaes</name>
+<!--         N       - dimensions no -->
+  <parameters verbose="0" N="12" sigma="0.3" stopfitness="10e-9" breakIfNoProgressFor="18000"></parameters>
+  <dim0 min="-0.02" max="0.02"></dim0> <!--range for the variable-->
+  <dim1 min="0.15" max="0.18"></dim1> <!--range for the variable-->
+  <dim2 min="-0.05" max="0.0"></dim2> <!--range for the variable-->
+  <dim3 min="-1.7" max="1.5"></dim3> <!--range for the variable-->
+  <dim4 min="-3.57" max="-3.0"></dim4> <!--range for the variable-->
+  <dim5 min="0.09" max="0.12"></dim5> <!--range for the variable-->
+  <dim6 min="0.5" max="0.6"></dim6> <!--range for the variable-->
+  <dim7 min="-0.12" max="-0.1"></dim7> <!--range for the variable-->
+  <dim8 min="-0.04" max="0.0"></dim8> <!--range for the variable-->
+  <dim9 min="-0.02" max="0.02"></dim9> <!--range for the variable-->
+  <dim10 min="-0.01" max="0.03"></dim10> <!--range for the variable-->
+  <dim11 min="1.5" max="1.65"></dim11> <!--range for the variable-->
+  </CMAES>
+
+<!--strfitnessfct="frosenbrock"-->
+
+<!--
+  <dim0 min="-0.2" max="0.0"></dim0> 
+  <dim1 min="-0.2" max="0.0"></dim1> 
+  <dim2 min="0.0" max="0.2"></dim2> 
+  <dim3 min="-2.57" max="-1.57"></dim3> 
+  <dim4 min="-3.57" max="-2.57"></dim4>
+  <dim5 min="-1.77" max="1.27"></dim5> -->
+
+<!--  min: -0.00604253     0.16979   -0.034022    -1.63145    -3.12663    0.106946    0.579279   -0.112483  -0.0167167  0.00206016  0.00232913     1.59602
+Cost function value: 0.00264489
+
+Execution time: 2.39141 s
+Obtained transformation:
+  -0.994175   0.0213239   -0.105644 -0.00604253
+   -0.10673  -0.0586749    0.992555     0.16979
+  0.0149665    0.998049    0.060609   -0.034022
+          0           0           0           1
+to camera: -0.00604253 0.16979 -0.034022 -0.0311869 0.684633 0.726887 -0.044042
+to camera inverse:
+ -0.994175   -0.10673  0.0149665  0.0126236
+ 0.0213239 -0.0586749   0.998049  0.0440469
+ -0.105644   0.992555   0.060609  -0.167102
+         0          0          0          1
+Mean pos Error: 0.000779614 [m]-->

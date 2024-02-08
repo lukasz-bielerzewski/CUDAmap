@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+  <Gamepad>
+<!--       delay - delay between queries[ms] -->
+      <parameters device="/dev/input/js0" verbose="1" delay="20"/>
+  </Gamepad>

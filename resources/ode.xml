@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Visualizer configuration -->
+  <Ground>
+        <!--<parameters friction="8.5" bounce="10.915" bounce_vel="10.9" soft_cfm="10.107"></parameters>
+        <parameters friction="1.0" bounce="0" bounce_vel="100000.0" soft_cfm="0.0" soft_erp ="0.2" gravity="-9.8" sim_step="0.001"  contact_surf_layer="0.001" contact_max_corr_vel="100" auto_disable_flag="0"></parameters>
+  </Ground>-->
+        <parameters friction="0.9" bounce="0" bounce_vel="100" soft_cfm="0.1" soft_erp ="0.2" gravity="-9.8" sim_step="0.001"  contact_surf_layer="0.001" contact_max_corr_vel="100" auto_disable_flag="0"></parameters>
+  </Ground>
+<!-- Terrain configuration file -->
+<terrain filename="terrain.xml"/>

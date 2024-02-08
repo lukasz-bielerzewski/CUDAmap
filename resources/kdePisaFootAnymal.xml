@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- CMAES parameters -->
+  <CMAES>
+	<name>Cmaes</name>
+<!--         N       - dimensions no -->
+  <parameters verbose="0" N="1" sigma="0.3" stopfitness="10e-9" breakIfNoProgressFor="180"></parameters>
+  <dim0 min="-79176.3" max="97161.9"></dim0> <!--range for the variable-->
+  </CMAES>
+
+<!--strfitnessfct="frosenbrock"-->

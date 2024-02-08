@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+  <Server>
+    <!--<parameters useSimulation="false" host="150.254.46.214" port="22513"/>--> <!--wire 321CM-->
+      <parameters useSimulation="false" host="10.0.0.1" port="22513"/> <!--wifi-->
+<!--     <parameters useSimulation="false" host="150.254.46.220" port="22513"/> -->
+    <!--<parameters useSimulation="false" host="192.168.1.155" port="22513"/>--> <!--lab 424-->
+     <robot name="Messor"/>
+<!--      <robot name="Galgo"/> -->
+<!--     <parameters useSimulation="true" host="127.0.0.1" port="22513"/> -->
+  </Server>

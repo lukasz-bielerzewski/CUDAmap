@@ -1,0 +1,83 @@
+<!-- Terrain declaration --><terrain>
+
+	<!-- Heightfield -->
+    <heightfield filename="maps/flatSmall.dat" rotate="0" flipHorizontal="false" scale="1.0">
+<!--    <heightfield filename="maps/flatWithObstacles.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/mapaBig1.dat" rotate="0" flipHorizontal="false" scale="1.0">-->
+<!--        <heightfield filename="maps/footTemplate.dat" rotate="0" flipHorizontal="false" scale="1.0">-->
+<!--       <heightfield filename="maps/flatBig.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--    <heightfield filename="maps/map_box.dat" rotate="0" flipHorizontal="false" scale="1.0">-->
+<!--      <heightfield filename="maps/map_bug_trap.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--     <heightfield filename="maps/map_bug_trap_anymal.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--            <heightfield filename="maps/roughPlan1.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--            <heightfield filename="maps/roughPlan2.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/mockup.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/bump.dat" rotate="90" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/step.dat" rotate="90" flipHorizontal="false" scale="1.0"> -->
+<!--     <heightfield filename="maps/concavity.dat" rotate="90" flipHorizontal="false" scale="1.0"> -->
+<!--       <heightfield filename="maps/JINT2017traj1/map_height.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--             <heightfield filename="maps/JINT2017traj2/map_height.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/JINT2017traj3/map_height.dat" rotate="0" flipHorizontal="true" scale="1.0"> -->
+<!--         <heightfield filename="maps/Prague_obstacleRace/map_3.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--             <heightfield filename="maps/eksperymentyMocap2/tripodSquareRotVel0p35/map.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--             <heightfield filename="maps/eksperymentyMocap2/tripodRampVel0p25_1/map.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--             <heightfield filename="maps/experimentsRealsense2/outdoor4/map.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/experimentsRealsense2/outdoor1/map.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--         <heightfield filename="maps/flat.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+<!--            <heightfield filename="maps/terrainTemplates4.dat" rotate="0" flipHorizontal="false" scale="1.0"> -->
+              <!--<heightfield filename="maps/trasa7.dat" rotate="0" flipHorizontal="false" scale="1.0"> --> 
+           
+		<parameters_in_file provided="true"/>
+		<size xyz="200 0 200"/>
+		<scale xyz="0.05 1 0.05"/>
+                <!--scheme:
+                    0 - grayColorMap
+                    1 - hotColorMap 
+                    2 - jetColorMap
+                    3 - coldColorMap
+                    4 - blueColorMap
+                    5 - cyclicColorMap
+                    6 - colorMap
+                    7 - randColorMap-->
+		<color scheme="1" min="0.2" max="2.5"/>
+	</heightfield>
+
+        <colormap load="false"/>
+<!--         <colormap load="true" filename="maps/JINT2017traj1/map_color.dat"/> -->
+<!--         <colormap load="true" filename="maps/JINT2017traj2/map_color.dat"/> -->
+<!--         <colormap load="true" filename="maps/JINT2017traj3/map_color.dat"/> -->
+<!--         <colormap load="true" filename="maps/eksperymentyMocap2/tripodSquareRotVel0p35/colormap.dat"/> -->
+<!--         <colormap load="true" filename="maps/eksperymentyMocap2/tripodRampVel0p25_1/colormap.dat"/> -->
+<!--             <colormap load="true" filename="maps/experimentsRealsense2/outdoor4/colormap.dat"/> -->
+<!--             <colormap load="true" filename="maps/experimentsRealsense2/outdoor1/colormap.dat"/> -->
+        <mapClasses load="false">
+<!--         <mapClasses load="true" filename="maps/JINT2017traj1/map_label_crf.dat" classesNo="8"> -->
+<!--         <mapClasses load="true" filename="maps/JINT2017traj1/map_label.dat" classesNo="8"> -->
+<!--         <mapClasses load="true" filename="maps/JINT2017traj1/map_label_svm.dat" classesNo="8"> -->
+<!-- 	<mapClasses load="true" filename="maps/JINT2017traj2/map_label.dat" classesNo="8"> -->
+<!--         <mapClasses load="true" filename="maps/JINT2017traj3/map_label.dat" classesNo="8"> -->
+            <terrainClass0 id="0" name="grass" cost="10.03" r="0.0" g="1.0" b="0.0"/>
+            <terrainClass1 id="1" name="pavement" cost="2.01" r="0.82" g="0.82" b="0.82"/>
+            <terrainClass2 id="2" name="asphalt" cost="3.02" r="0.1" g="0.1" b="0.1"/>
+            <terrainClass3 id="3" name="bushes" cost="18.8" r="0.0" g="0.44" b="0.0"/>
+            <terrainClass4 id="4" name="leaves" cost="3.8" r="1.0" g="0.41" b="0.0"/>
+            <terrainClass5 id="5" name="trees" cost="29.9" r="1.0" g="1.0" b="0.0"/>
+            <terrainClass6 id="6" name="wall" cost="30.9" r="1.0" g="0.0" b="0.0"/>
+            <terrainClass7 id="7" name="concrete" cost="0.99" r="0.47" g="0.47" b="0.47"/>
+        </mapClasses>
+        
+        <filter type="median" filterElevMap="false" filterClassMap="false" filterColorMap="false" filterWindow="11"/>
+
+	<!-- Obstacles -->
+	<obstacles>
+		<ball_rain on="false">
+			<parameters coverage="20" unit_size="0.1" frequency="0.5"/>
+		</ball_rain>
+		<brick_stacks on="false">
+			<parameters number_of_stacks="10" unit_size="0.05" units_per_stack="15"/>
+		</brick_stacks>
+		<ball_stacks on="false">
+			<parameters number_of_stacks="20" unit_size="0.1" units_per_stack="3"/>
+		</ball_stacks>
+	</obstacles>
+</terrain>

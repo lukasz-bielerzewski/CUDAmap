@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- Kinect Azure Model-->
+  <Model>
+    <focalLength fx="973.1953735351562" fy="973.0717163085938"></focalLength>
+    <focalAxis Cx="1025.578857421875" Cy="776.884521484375"></focalAxis>
+    <resolution rx="2048" Cy="1536"></resolution>
+    <depthScale scale="1000"></depthScale>
+    <!--<focalLength fx="537.58330" fy="537.08866"/>
+    <focalAxis Cu="314.54942" Cv="238.36211"/> -->
+    <variance sigmaU="1.1046" sigmaV="0.64160"></variance>
+    <varianceDepth c3="-8.9997e-6" c2="3.069e-3" c1="3.6512e-6" c0="-0.0017512e-3"></varianceDepth>
+  </Model>
+
+  <pose x="0.0" y="0.0" z="0.0" qw="0" qx="0" qy="0.707107" qz="0.707107"></pose>

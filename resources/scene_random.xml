@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scene>
+    
+  <object name="table" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/tables">
+      <origin xyzMin="0.0 0.0 0.53" xyzMax="0.0 0.0 0.53" rpy="0.0 0 0" scale="1.5 1.5 1.5"/>
+  </object>
+  
+  <object name="random1" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random2" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.23" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random3" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.23" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random4" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.23" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random5" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.23" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random6" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <object name="random7" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetMin/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 2.5 1.0" rpy="1.57 3.14 0.0" />
+  </cameraPose>
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 -2.5 1.0" rpy="-1.57 0.0 0.0" />
+  </cameraPose>
+  
+  <cameraPosesGenerator type="randomPosAndViewpoint" posesNo="1">
+      <lookAt xyzMin="-0.05 -0.05 0.1" xyzMax="0.05 0.05 0.2" />
+      <camPos radiusMin="1.0" radiusMax="1.2" pitchMin="0.7" pitchMax="0.9" yawMin="-3.14" yawMax="3.14"/>
+  </cameraPosesGenerator>
+<!--  <object name="table" type="dae" file="../../resources/models/Table.dae">
+      <origin xyz="0.0 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="crate" type="dae" file="../../resources/models/CrateModel.dae">
+      <origin xyz="0.5 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+</scene>

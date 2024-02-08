@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scene>
+    
+  <!--<object name="cafe_table" type="sdf" file="/home/dominik/.gazebo/models/cafe_table/model.sdf">
+      <origin xyz="0.0 0.0 0.53" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+    
+  <object name="tree1" type="obj" file="/home/dominik/Sources/walkers/resources/models/trees/Tree02/Tree.obj">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="tree2" type="obj" file="/home/dominik/Sources/walkers/resources/models/trees/Tree02/Tree.obj">
+      <origin xyz="2.0 2.0 0.0" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="tree3" type="obj" file="/home/dominik/Sources/walkers/resources/models/trees/Tree02/Tree.obj">
+      <origin xyz="5.0 3.0 0.0" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="tree4" type="obj" file="/home/dominik/Sources/walkers/resources/models/trees/Tree02/Tree.obj">
+      <origin xyz="-2.0 5.0 0.0" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="tree5" type="obj" file="/home/dominik/Sources/walkers/resources/models/trees/Tree02/Tree.obj">
+      <origin xyz="0.0 4.0 0.0" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>
+<!--  
+  <object name="hammer1" type="sdf" file="/home/dominik/.gazebo/models/hammer/model.sdf">
+      <origin xyz="0.0 0.1 1.93" rpy="0.1 1 0.9" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="hammer2" type="sdf" file="/home/dominik/.gazebo/models/hammer/model.sdf">
+      <origin xyz="0.09 0.13 1.73" rpy="0.1 0 0.3" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="hammer3" type="sdf" file="/home/dominik/.gazebo/models/hammer/model.sdf">
+      <origin xyz="-0.03 -0.07 1.83" rpy="0.1 0.1 1.2" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="hammer4" type="sdf" file="/home/dominik/.gazebo/models/hammer/model.sdf">
+      <origin xyz="0.00 -0.05 1.63" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="coach" type="obj" file="/home/dominik/Sources/walkers/resources/models/shapeNetFurnitures/Couch/11d5e99e8faa10ff3564590844406360/models/model_normalized.obj">
+      <origin xyz="2.0 2.1 0.93" rpy="0.1 1 0.9" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="coach" type="obj" file="/home/dominik/Sources/walkers/resources/models/shapeNetFurnitures/Couch/fab5f1daa52608365768db72e79a5dd5/models/model_normalized.obj">
+      <origin xyz="2.0 2.1 0.93" rpy="0.1 1 0.9" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="chair1" type="obj" file="/home/dominik/Sources/walkers/resources/models/chair/1a74a83fa6d24b3cacd67ce2c72c02e/models/model_normalized.obj">
+      <origin xyz="-2.00 -1.05 1.63" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>
+
+  <object name="chair2" type="obj" file="/home/dominik/Sources/walkers/resources/models/chair/1a38407b3036795d19fb4103277a6b93/models/model_normalized.obj">
+      <origin xyz="-1.00 -2.05 0.53" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>
+
+  <object name="chair3" type="obj" file="/home/dominik/Sources/walkers/resources/models/chair/1a6f615e8b1b5ae4dbbc9440457e303e/models/model_normalized.obj">
+      <origin xyz="0.00 -3.05 0.53" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="chair4" type="obj" file="/home/dominik/Sources/walkers/resources/models/chair/1a8bbf2994788e2743e99e0cae970928/models/model_normalized.obj">
+      <origin xyz="1.00 -2.05 0.53" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>
+  
+  <object name="chair5" type="obj" file="/home/dominik/Sources/walkers/resources/models/chair/1aa07508b731af79814e2be0234da26c/models/model_normalized.obj">
+      <origin xyz="2.00 -1.05 0.53" rpy="0.1 0.1 -1.6" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 2.5 1.0" rpy="1.57 3.14 0.0" />
+  </cameraPose>
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 -2.5 1.0" rpy="-1.57 0.0 0.0" />
+  </cameraPose>
+  
+  <cameraPosesGenerator type="randomPosAndViewpoint" posesNo="1">
+      <lookAt xyzMin="-0.05 -0.05 0.1" xyzMax="0.05 0.05 0.2" />
+      <camPos radiusMin="1.0" radiusMax="1.2" pitchMin="0.7" pitchMax="0.9" yawMin="-3.14" yawMax="3.14"/>
+  </cameraPosesGenerator>
+<!--  <object name="table" type="dae" file="../../resources/models/Table.dae">
+      <origin xyz="0.0 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="crate" type="dae" file="../../resources/models/CrateModel.dae">
+      <origin xyz="0.5 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+</scene>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<boardGalgo>
+  <parameters rightLegsDevPath="/dev/ttyUSB0" leftLegsDevPath="/dev/ttyUSB1" baudRate="3000000" torqueEnable="0" spiReadAttempts="10" />
+  <spiDevices>
+    <spiDevice legNumber="0" port="0" frequency="15000" readTimeout="0" writeTimeout="0" />
+    <spiDevice legNumber="1" port="1" frequency="15000" readTimeout="0" writeTimeout="0" />
+    <spiDevice legNumber="2" port="2" frequency="15000" readTimeout="0" writeTimeout="0" />
+    <spiDevice legNumber="3" port="3" frequency="15000" readTimeout="0" writeTimeout="0" />
+  </spiDevices>
+</boardGalgo>

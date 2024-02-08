@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- PSO parameters -->
+  <PSO>
+	<name>Cmaes</name>
+<!--         N       - dimensions no -->
+  <parameters verbose="0" N="6" particlesNo="10" maxEpoch="20" stopfitness="10e-6" c1="2" c2="2" speedLimit="0.1" breakIfNoProgressFor="5"></parameters>
+  <dim0 min="-0.035" max="0.035"></dim0> <!--range for the variable-->
+  <dim1 min="-0.035" max="0.035"></dim1> <!--range for the variable-->
+  <dim2 min="-0.035" max="0.035"></dim2> <!--range for the variable-->
+  <dim3 min="-0.1" max="0.1"></dim3> <!--range for the variable-->
+  <dim4 min="-0.1" max="0.1"></dim4> <!--range for the variable-->
+  <dim5 min="-0.1" max="0.1"></dim5> <!--range for the variable-->
+  </PSO>
+
+<!--strfitnessfct="frosenbrock"-->

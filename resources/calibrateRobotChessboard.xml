@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- CMAES parameters -->
+  <CMAES>
+	<name>Cmaes</name>
+<!--         N       - dimensions no -->
+  <parameters verbose="0" N="18" sigma="0.3" stopfitness="10e-9" breakIfNoProgressFor="18000"></parameters>
+  <dim0 min="-0.2" max="0.2"></dim0> <!--range for the variable-->
+  <dim1 min="-0.2" max="0.2"></dim1> <!--range for the variable-->
+  <dim2 min="-0.2" max="0.2"></dim2> <!--range for the variable-->
+  <dim3 min="-6.28" max="6.28"></dim3> <!--range for the variable-->
+  <dim4 min="-6.28" max="6.28"></dim4> <!--range for the variable-->
+  <dim5 min="-6.28" max="6.28"></dim5> <!--range for the variable-->
+  <dim6 min="-2.0" max="2.0"></dim6> <!--range for the variable-->
+  <dim7 min="-2.0" max="2.0"></dim7> <!--range for the variable-->
+  <dim8 min="-2.0" max="2.0"></dim8> <!--range for the variable-->
+  <dim9 min="-6.28" max="6.28"></dim9> <!--range for the variable-->
+  <dim10 min="-6.28" max="6.28"></dim10> <!--range for the variable-->
+  <dim11 min="-6.28" max="6.28"></dim11> <!--range for the variable-->
+  <dim12 min="-2.0" max="2.0"></dim12> <!--range for the variable-->
+  <dim13 min="-2.0" max="2.0"></dim13> <!--range for the variable-->
+  <dim14 min="-2.0" max="2.0"></dim14> <!--range for the variable-->
+  <dim15 min="-6.28" max="6.28"></dim15> <!--range for the variable-->
+  <dim16 min="-6.28" max="6.28"></dim16> <!--range for the variable-->
+  <dim17 min="-6.28" max="6.28"></dim17> <!--range for the variable-->
+  </CMAES>
+
+<!--strfitnessfct="frosenbrock"-->

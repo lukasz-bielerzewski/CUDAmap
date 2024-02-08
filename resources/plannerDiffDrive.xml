@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- Planner configuration -->
+  <Planner>
+    <name>RRT-Connect</name>
+    <parameters maxIter="10000" maxStepDistance="0.29" maxRotYaw="0.25" trajPoints="10" substepsNo="3"></parameters>
+  </Planner>

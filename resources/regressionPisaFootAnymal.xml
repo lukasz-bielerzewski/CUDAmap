@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+  <PolynomialFitting>
+    <!--
+    # input - number of features
+    # output - number of outputs
+    # The number of elements in polynomial - 'm'
+    # the maximal number of iterations
+    # the number of learning data
+    # the number of test data
+    # the final equation form
+      # 1 - octave/matlab like type
+      # 2 - c/c++ like type
+    -->
+    <parameters inputsNo="2" outputsNo="1" trainSize="10000" testSize="10000" outputType="2"></parameters>
+    <dim0 maxCoeff="2"></dim0> <!-- max coeff (2 means x^0 x^1 x^2)-->
+    <dim1 maxCoeff="2"></dim1>
+  
+  </PolynomialFitting>
+      
+  <trainingSet>../../resources/idontknow.dat</trainingSet>
+  <testSet>../../resources/idontknow.dat</testSet>
+  <verificationSet>../../resources/idontknow.dat</verificationSet>

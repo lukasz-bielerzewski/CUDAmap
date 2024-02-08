@@ -1,0 +1,43 @@
+<scene>
+  
+  <object name="random1" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetGraspable_30instances_bottle/objects">
+      <origin xyzMin="-0.0 -0.0 0.0" xyzMax="0.0 0.0 0.0" rpy="0.0 0 0.0" scale="1.0 1.0 1.0"/>
+  </object>
+  
+<!--  <object name="random2" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetGraspable_1instance_bottle/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>-->
+  
+<!--  <object name="random2" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetGraspable_1instance_mug/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>-->
+  
+<!--  <object name="random2" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNetGraspable_1instance_bowl/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>-->
+  
+  <!--<object name="random5" type="randomShapeNet" file="/home/dominik/Sources/walkers/resources/models/shapeNet/objects">
+      <origin xyzMin="-0.35 -0.35 1.13" xyzMax="0.35 0.35 1.33" rpy="0.0 0 0.0" scale="0.25 0.25 0.25"/>
+  </object>-->
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 2.5 1.0" rpy="1.57 3.14 0.0"/>
+  </cameraPose>
+  
+  <cameraPose type="fixed">
+      <origin xyz="0.0 -2.5 1.0" rpy="-1.57 0.0 0.0"/>
+  </cameraPose>
+  
+  <cameraPosesGenerator type="randomPosAndViewpoint" posesNo="1">
+      <lookAt xyzMin="0.0 0.0 0.0" xyzMax="0.0 0.0 0.0"/>
+      <camPos radiusMin="1.25" radiusMax="1.25" pitchMin="0.7" pitchMax="0.9" yawMin="-3.14" yawMax="3.14"/>
+  </cameraPosesGenerator>
+<!--  <object name="table" type="dae" file="../../resources/models/Table.dae">
+      <origin xyz="0.0 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+<!--  <object name="crate" type="dae" file="../../resources/models/CrateModel.dae">
+      <origin xyz="0.5 0.3 0.93" rpy="0.0 0 0" scale="1.0 1.0 1.0"/>
+  </object>-->
+  
+</scene>

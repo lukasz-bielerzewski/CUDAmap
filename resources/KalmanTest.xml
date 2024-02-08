@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Mocap configuration-->
+<Kalman>
+    <!--n - state vector size
+    m - outputs no-->
+    <parameters n="3" m="1" isSE3="false"/> 
+    <A a0_0="1.0" a0_1="0.01" a0_2="0.0"
+       a1_0="0.0" a1_1="1.0"  a1_2="0.01"
+       a2_0="0.0" a2_1="0.0"  a2_2="1.0"/> <!--System dynamics matrix-->
+    <C a0_0="1.0"  a1_0="0.0" a2_0="0.0"/> <!--Output matrix-->
+    <Q a0_0="0.05" a0_1="0.05"  a0_2="0.0"
+       a1_0="0.05" a1_1="0.05"  a1_2="0.0"
+       a2_0="0.0"  a2_1="0.0"   a2_2="0.0"/> <!--Process noise covariance-->
+    <R a0_0="5.0"/> <!--Measurement noise covariance-->
+    <P a0_0="0.1" a0_1="0.1"   a0_2="0.1"
+            a1_0="0.1" a1_1="10000"  a1_2="10.0"
+            a2_0="0.1"   a2_1="10.0"  a2_2="100.0"/> <!--Estimate error covariance-->
+</Kalman>

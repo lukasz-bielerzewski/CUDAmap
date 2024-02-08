@@ -1,0 +1,256 @@
+<configGlobal>
+  <environment>
+     <type>physx</type>
+        <config>physx.xml</config>
+<!--              <type>ode</type>
+            <config>ode.xml</config>-->
+  </environment>
+
+  <Scene>
+      <type>empty</type>
+        <config>scene_empty.xml</config> 
+        
+<!--             <type>scene_table</type> -->
+<!--             <config>scene_table.xml</config> -->
+<!--          <type>scene_random</type> -->
+<!--               <config>scene_random.xml</config> -->
+           <!--<type>scene_random</type>-->
+<!--               <config>scene_graspable_Dexnet_train.xml</config> -->
+<!--            <type>scene_forest</type> -->
+<!--            <config>scene_forest.xml</config> -->
+<!--                <config>scene_graspable.xml</config> -->
+<!--           <type>scene_random</type>
+            <config>scene_furnitures.xml</config>-->
+  </Scene>
+
+  <Robot>
+         <type>MessorII</type>
+         <config>MessorII/MessorII.xml</config>
+        
+<!--            <type>Laikago</type>
+        <config>Laikago/Laikago.xml</config>-->
+<!--        <type>Anymal</type> -->
+<!--         <config>Anymal/Anymal.xml</config>  -->
+<!--     <type>Anymal_C</type>
+        <config>Anymal_C/Anymal_C.xml</config>-->
+<!--        <type>Atlas</type>
+	<config>Atlas/Atlas.xml</config>-->
+<!--        <type>PhantomX</type>
+	<config>PhantomX/PhantomX.xml</config>-->
+<!--        <type>Galgo</type>
+	<config>Galgo/Galgo.xml</config>-->
+<!--       <type>MessorII</type>
+          <config>MessorII/MessorII.xml</config>-->
+        <!--<type>StarlETH</type>
+	<config>StarlETH/StarlETH.xml</config>-->
+        <!--<type>Robot1</type>
+	<config>Robot1/Robot1.xml</config>-->
+        <!--<type>Robot2</type>
+	<config>Robot2/Robot2.xml</config>-->
+  </Robot>
+
+  <MotionController>
+    <type>kinematic</type>
+    <config>controllerMessor2.xml</config>
+  </MotionController>
+
+  <Mapping>
+	<type>ElevationMap</type>
+	<config>terrain.xml</config>
+  </Mapping>
+
+  <Planner>
+    <type>RRTConnect</type>
+	<config>MessorII/plannerRRTConnect.xml</config>
+      
+	<!--<type>RRTConnect</type>-->
+<!-- 	<config>MessorII/plannerRRTConnect.xml</config> -->
+<!--    <config>Anymal/plannerRRTConnect.xml</config> -->
+     <!--<config>Laikago/plannerRRTConnect.xml</config>-->
+      
+<!--      <type>RRTStarConnect</type> -->
+<!-- 	<config>MessorII/plannerRRTStarConnect.xml</config> -->
+<!--     <config>Anymal/plannerRRTStarConnect.xml</config>-->
+<!--      <config>Laikago/plannerRRTStarConnect.xml</config> -->
+      
+<!--    <type>GuidedRRT</type> -->
+<!--     <config>MessorII/guidedRRT.xml</config> -->
+<!--    <config>Anymal/guidedRRT.xml</config>-->
+
+<!--     <type>GuidedRRTStarConnect</type> -->
+<!--     <config>MessorII/guidedRRTStarConnect.xml</config> -->
+<!--     <config>Anymal/guidedRRTStarConnect.xml</config> -->
+  </Planner>
+
+  <Visualizer useVisualizer="true">
+	<type>QGLViewer</type>
+	<config>walkersQVisualizerConfig.xml</config>
+  </Visualizer>
+
+  <ServerSimulator connect="true">
+	<type>BoostSockets</type>
+	<config>serverSimulator.xml</config>
+  </ServerSimulator>
+
+  <Optimizer>
+    <name>CMAES</name>
+<!--     <config>calibrateLaser.xml</config> -->
+    <!--<config>calibrateRobotChessboard.xml</config>-->
+<!--     <config>calibrateRobot.xml</config> -->
+    <!--<config>calibrateOrbecGripper.xml</config>-->
+    <config>calibrateCameraGripperRobtech.xml</config>
+  </Optimizer>
+
+  <MotionCapture useMocap="false">
+	<type>OptiTrack</type>
+	<config>optiTrack.xml</config>
+  </MotionCapture>
+
+  <Grabber useGrabber="false" continuousMode="true">
+<!--  	<type>Xtion</type> -->
+<!--          <type>RealSense</type> -->
+         <type>RealSense2</type>
+	<config>KinectModel.xml</config>
+  </Grabber>
+
+  <HMIDevice>
+<!--     <name>None</name> --> <!--if none-->
+    <name>Gamepad</name>
+    <config>Gamepad.xml</config>
+  </HMIDevice>
+
+  <CollisionDetection>
+<!--    <type>Coldet</type>
+    <config>coldet.xml</config>-->
+     <type>FCL</type>
+    <config>flexibleCollDetect.xml</config>
+  </CollisionDetection>
+
+  <Regression>
+    <type>GaussianMixture</type>
+<!--     <config>regressionCollNeigh.xml</config> -->
+<!--     <config>regressionColl.xml</config> -->
+    <config>regressionKinemMargin.xml</config>
+<!--     <config>regressionOutKinemMargin.xml</config> -->
+  </Regression>
+
+  <Loader useLoader="false">
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p2/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p2/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p2/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p2/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p2/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25_1/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25_1/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25_1/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25_1/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodRampVel0p25_1/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p1/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p1/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p1/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p1/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p1/orders.log" />-->
+    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p35/grabber.log"/>
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p35/ahrs.log"/>
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p35/refMotion.log"/>
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p35/robotState.log"/>
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p35/orders.log"/>--&gt;
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p7/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p7/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p7/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p7/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel0p7/orders.log" />-->
+<!--    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel1p0/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel1p0/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel1p0/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel1p0/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRotVel1p0/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p1/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p1/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p1/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p1/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p1/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p35/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p35/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p35/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p35/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p35/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p7/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p7/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p7/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p7/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel0p7/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel1p0/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel1p0/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel1p0/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareVel1p0/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodSquareRot1p0/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p1/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p1/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p1/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p1/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p1/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p35/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p35/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p35/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p35/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p35/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p7/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p7/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p7/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p7/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel0p7/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel1p0/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel1p0/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel1p0/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel1p0/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodXYZvel1p0/orders.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk/orders.log" />  -->
+<!--    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk2/grabber2017-7-10_11:9:29.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk2/rawAHRS2017-7-10_5:9:31.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk2/robotRefMotion2017-7-10_5:9:20.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk2/robotState2017-7-10_5:9:31.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/testWalk2/orders2017-7-10_11:9:31.log" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p35/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p35/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p35/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p35/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p35/orders.log" />-->
+<!--    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p7/grabber.log" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p7/ahrs.log" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p7/refMotion.log" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p7/robotState.log" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyMocap2/tripodFreeVel0p7/orders.log" />-->
+
+<!--    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor1/grabber2018-8-16-17-25-21.dat" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor1/rawAHRS2017-6-7-9-31-6.dat" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor1/robotRefMotion2017-6-7-9-30-54.dat" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor1/robotState2017-6-7-9-31-6.dat" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor1/orders2018-8-16-17-25-23.dat" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor2/grabber2018-8-17_11:27:52.dat" /> ORB-SLAM2 doesn't work
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor2/rawAHRS2017-6-7-9-19-50.dat" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor2/robotRefMotion2017-6-7-9-19-40.dat" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor2/robotState2017-6-7-9-19-50.dat" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor2/orders2018-8-17_11:27:54.dat" />-->
+    <!--<MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor3/grabber2018-8-17_11:38:49.dat" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor3/rawAHRS2017-6-7-9-30-47.dat" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor3/robotRefMotion2017-6-7-9-30-43.dat" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor3/robotState2017-6-7-9-30-47.dat" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor3/orders2018-8-17_11:38:51.dat" />-->
+<!--    <MocapData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor4/grabber2018-8-17_11:45:12.dat" />
+    <AHRSData file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor4/rawAHRS2017-6-7-9-37-10.dat" />
+    <RefMotion file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor4/robotRefMotion2017-6-7-9-37-1.dat" />
+    <RobotState file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor4/robotState2017-6-7-9-37-10.dat" />
+    <Orders file="/home/dominik/uczelnia/badania/eksperymentyMessor2/eksperymentyRealSense2/outdoor4/orders2018-8-17_11:45:13.dat" />-->
+  </Loader>
+
+</configGlobal>

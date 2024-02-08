@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- Kinect Model-->
+  <Model>
+    <focalLength fx="1052.51416" fy="1049.88868"></focalLength>
+    <focalAxis Cx="256.676566" Cy="256.956124"></focalAxis>
+    <resolution rx="512" Cy="512"></resolution>
+    <!--<focalLength fx="537.58330" fy="537.08866"/>
+    <focalAxis Cu="314.54942" Cv="238.36211"/> -->
+    <variance sigmaU="1.1046" sigmaV="0.64160"></variance>
+    <varianceDepth c3="-8.9997e-6" c2="3.069e-3" c1="3.6512e-6" c0="-0.0017512e-3"></varianceDepth>
+  </Model>
+  
+  <pose x="0.0" y="0.0" z="0.0" qw="0" qx="0" qy="0.707107" qz="0.707107"></pose>
