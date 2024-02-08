@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<controller>
+        <!-- frequency - update frequency [Hz] -->
+        <regulation PID="800 0.0 1.0" frequency="15000"/>
+        <limits min="-2.5" max="2.5"/> <!--max reference torque-->
+</controller>
+

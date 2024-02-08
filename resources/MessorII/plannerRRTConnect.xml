@@ -1,0 +1,7 @@
+<!-- Planner configuration --><Planner>
+    <name>RRT-Connect</name>
+    <goalPose xy="0 4.3" yaw="0.0"/>
+    <parameters distance2ground="0.025" maxIter="20000" maxPlanningTime="60000" optimizeInitPose="true" maxStepDistance="0.09" maxRotYaw="0.4" trajPoints="10" substepsNo="5" minKinematicMargin="0.02"/>
+    <workspaceOptimization maxIter="15" step="0.02"/>
+    <dist2workspaceOptimization maxIter="15" step="0.05"/>
+</Planner>

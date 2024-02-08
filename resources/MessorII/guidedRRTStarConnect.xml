@@ -1,0 +1,5 @@
+<!-- Planner configuration --><Planner>
+    <name>GuidedRRT</name>
+    <goalPose xy="0 2.3" yaw="0.0"/>
+    <parameters configRRTStarConnect="MessorII/plannerRRTStarConnect.xml" configGuidedRRT="MessorII/guidedRRT.xml" maxPlanningTime="600"/>
+</Planner>
