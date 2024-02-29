@@ -31,37 +31,14 @@ struct SimplePoint
     uchar r, g, b, a;
 };
 
-///NEW CODE
-
 void allocateMemory(cv::cuda::GpuMat &gpuDepthImage, cv::cuda::GpuMat &gpuColorImage, cv::Mat &depthImage, cv::Mat &colorImage,
                     grabber::CameraModel &kinectModel, double depthFactor, double minDepth, double maxDepth,
-                    SimplePoint* &gpuPointCloud);
+                    SimplePoint* &gpuPointCloud, SimplePoint* &gpuTransformedPointCloud);
 
-void deallocateMemory(cv::cuda::GpuMat &gpuDepthImage, cv::cuda::GpuMat &gpuColorImage, SimplePoint* &gpuPointCloud);
+void deallocateMemory(cv::cuda::GpuMat &gpuDepthImage, cv::cuda::GpuMat &gpuColorImage, SimplePoint* &gpuPointCloud, SimplePoint* &gpuTransformedPointCloud);
 
 void CUDAmap(cv::cuda::GpuMat &gpuDepthImage, cv::Mat& depthImage, cv::cuda::GpuMat &gpuColorImage, cv::Mat& colorImage,
-             SimplePoint* &gpuPointCloud, SimplePoint* &pointCloud);
-
-///END OF NEW CODE
-
-/// Depth to point cloud conversion
-// Memory allocation
-void allocateDepth2CloudMemory(cv::cuda::GpuMat &gpuDepthImage, cv::cuda::GpuMat &gpuColorImage, cv::Mat &depthImage, cv::Mat &colorImage,
-                               SimplePoint* &gpuPointCloud, grabber::CameraModel &kinectModel, int &cloudSize);
-
-void allocateTransformPointsMemory(SimplePoint* &gpuInputPointCloud, SimplePoint* &outputPointCloud, int &cloudSize);
-
-// Memory deallocation
-void deallocateDepth2CloudMemory(cv::cuda::GpuMat &gpuDepthImage, cv::cuda::GpuMat &gpuColorImage, SimplePoint* &gpuPointCloud);
-
-void deallocateTransformPointsMemory(SimplePoint* &gpuInputPointCloud, SimplePoint* &outputPointCloud);
-
-// Main functionality - kernel
-void CUDADepth2Cloud(cv::cuda::GpuMat &gpuDepthImage, cv::Mat& depthImage, cv::cuda::GpuMat &gpuColorImage, cv::Mat& colorImage,
-                     grabber::CameraModel &kinectModel, double depthFactor, double minDepth, double maxDepth,
-                     SimplePoint* &gpuPointCloud, SimplePoint* &pointCloud, int &cloudSize);
-
-void CUDATransformPoints(double* camPoseArray, SimplePoint* &pointCloud, SimplePoint* &outputPointCloud,
-                         SimplePoint *gpuInputPointCloud, SimplePoint* &gpuOutputPointCloud, int &cloudSize);
+             SimplePoint* &gpuPointCloud, walkers::Mat34 &camPose, SimplePoint* &gpuTransformedPointCloud,
+             TimeMeasurements &timepointtrans, TimeMeasurements &timedepth2cloud);
 
 #endif // CUDAMAP_H

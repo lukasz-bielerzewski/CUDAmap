@@ -42,11 +42,11 @@ __host__ void sendDataToGPU(double* &camPoseArray, SimplePoint* &pointCloud, Sim
     cudaMemcpy(gpuInputPointCloud, pointCloud, cloudSize * sizeof(SimplePoint), cudaMemcpyHostToDevice);
 }
 
-__host__ void getDataFromGPU(SimplePoint* &outputPointCloud, SimplePoint* &gpuOutputPointCloud, int &cloudSize)
-{
-    // Get point cloud data from GPU memory
-    cudaMemcpy(outputPointCloud, gpuOutputPointCloud, cloudSize * sizeof(SimplePoint), cudaMemcpyDeviceToHost);
-}
+// __host__ void getDataFromGPU(SimplePoint* &outputPointCloud, SimplePoint* &gpuOutputPointCloud, int &cloudSize)
+// {
+//     // Get point cloud data from GPU memory
+//     cudaMemcpy(outputPointCloud, gpuOutputPointCloud, cloudSize * sizeof(SimplePoint), cudaMemcpyDeviceToHost);
+// }
 
 /// Kernel
 __global__ void KernelTransformPoints(SimplePoint *gpuInputPointCloud, SimplePoint *gpuOutputPointCloud, int cloudSize)
@@ -93,5 +93,5 @@ __host__ void CUDATransformPoints(double* camPoseArray, SimplePoint* &pointCloud
     cudaDeviceSynchronize();
 
     // Get point cloud data from GPU
-    getDataFromGPU(outputPointCloud, gpuOutputPointCloud, cloudSize);
+    // getDataFromGPU(outputPointCloud, gpuOutputPointCloud, cloudSize);
 }

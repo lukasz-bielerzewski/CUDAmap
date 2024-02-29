@@ -2,11 +2,13 @@
 #include "CUDAmap.h"
 
 using namespace walkers;
+
 TimeMeasurements timeloadimagepair;
-TimeMeasurements timedepth2cloud;
 TimeMeasurements timeloop;
 TimeMeasurements timepointtrans;
+TimeMeasurements timedepth2cloud;
 TimeMeasurements pointcl2elli;
+
 
 mapping::Point3D transformPoint(const  grabber::PointCloud& cloud1, const walkers::Mat34& camPose, int index)
 {
@@ -105,7 +107,7 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
             cv::Mat depthImage;
             cv::Mat colorImage;
 
-            for(size_t imageNo=0; imageNo<1; imageNo++)
+            for(size_t imageNo=0; imageNo<1507; imageNo++)
             {
                 std::chrono::steady_clock::time_point begin_test = std::chrono::steady_clock::now();
 
@@ -119,49 +121,38 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
                 std::chrono::steady_clock::time_point end_depth2load = std::chrono::steady_clock::now();
                 timedepth2cloud.addMeasurement(end_depth2load-begin_depth2load);
 
-                /// DEBUG - to be removed
-
-                for(int i = 0; i < 20; ++i)
-                {
-                    std::cout << "image[" << i << "]: x: " << cloud1[i].x << "; y: " << cloud1[i].y << "; z: " << cloud1[i].z <<
-                        "; r: " << cloud1[i].r << "; g: " << cloud1[i].g << "; b: " << cloud1[i].b << std::endl;
-                    std::cout << std::endl;
-                }
-
-                /// END OF DEBUG
-
-                //camPose = walkers::toSE3(Eigen::Vector3d(trajectoryData[imageNo][0], trajectoryData[imageNo][1],trajectoryData[imageNo][2]),
-                //                         Quaternion(trajectoryData[imageNo][6], trajectoryData[imageNo][3], trajectoryData[imageNo][4], trajectoryData[imageNo][5]));
+                camPose = walkers::toSE3(Eigen::Vector3d(trajectoryData[imageNo][0], trajectoryData[imageNo][1],trajectoryData[imageNo][2]),
+                                         Quaternion(trajectoryData[imageNo][6], trajectoryData[imageNo][3], trajectoryData[imageNo][4], trajectoryData[imageNo][5]));
 
                 /// point cloud
 
                 std::chrono::steady_clock::time_point begin_pointtrans = std::chrono::steady_clock::now();
-                //const int numThreads = 8;
-                //std::vector<std::thread> threads;
-                //std::vector<mapping::Point3D> combinedCloudMap(cloud1.size());
+                const int numThreads = 8;
+                std::vector<std::thread> threads;
+                std::vector<mapping::Point3D> combinedCloudMap(cloud1.size());
 
                 // Split the work among threads
-                // int chunkSize = static_cast<int>(cloud1.size()) / numThreads;
-                // int start = 0;
+                int chunkSize = static_cast<int>(cloud1.size()) / numThreads;
+                int start = 0;
 
-                // for (int i = 0; i < numThreads; i++) {
-                //     int end = start + chunkSize;
-                //     threads.emplace_back(processPoints, std::ref(cloud1), std::ref(camPose), start, end, std::ref(combinedCloudMap));
-                //     start = end;
-                // }
+                for (int i = 0; i < numThreads; i++) {
+                    int end = start + chunkSize;
+                    threads.emplace_back(processPoints, std::ref(cloud1), std::ref(camPose), start, end, std::ref(combinedCloudMap));
+                    start = end;
+                }
 
                 // Wait for all threads to finish
-                // for (auto& thread : threads) {
-                //     thread.join();
-                // }
+                for (auto& thread : threads) {
+                    thread.join();
+                }
                 std::chrono::steady_clock::time_point end_pointtrans = std::chrono::steady_clock::now();
                 timepointtrans.addMeasurement(end_pointtrans-begin_pointtrans);
 
                 std::chrono::steady_clock::time_point begin_ndtom = std::chrono::steady_clock::now();
-                //map3D->insertCloud(combinedCloudMap,walkers::Mat34::Identity(),mapping::updateMethodType::TYPE_NDTOM,false);
+                map3D->insertCloud(combinedCloudMap,walkers::Mat34::Identity(),mapping::updateMethodType::TYPE_NDTOM,false);
                 std::chrono::steady_clock::time_point end_ndtom = std::chrono::steady_clock::now();
                 pointcl2elli.addMeasurement(end_ndtom-begin_ndtom);
-                //combinedCloudMap.clear();
+                combinedCloudMap.clear();
 
                 std::chrono::steady_clock::time_point end_test = std::chrono::steady_clock::now();
                 timeloop.addMeasurement(end_test-begin_test);
@@ -172,28 +163,28 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
 
         if (state=="read_clouds_cuda") {
             std::cout << "state \n";
+
+
+
             ///Image2CloudConv
             std::string kinectModelConfig = "cameraModels/KinectModel_ICL.xml";
             grabber::CameraModel kinectModel(kinectModelConfig);
 
             ///camera position
             walkers::Mat34 camPose;
-            double camPoseArray[16];
 
-            // Images containers
+            // Image containers
             cv::Mat depthImage;
             cv::Mat colorImage;
 
             // Need to load first pair of images to set some initial values
             loadImagePair(1, depthImage, colorImage);
-            int cloudSize = depthImage.cols * depthImage.rows;
 
             // CUDA host containers/variables
             cv::cuda::GpuMat gpuDepthImage;
             cv::cuda::GpuMat gpuColorImage;
             SimplePoint* gpuPointCloud;
-            SimplePoint* pointCloud = new SimplePoint[static_cast<size_t>(cloudSize)];
-            //SimplePoint* outputPointCloud = new SimplePoint[static_cast<size_t>(cloudSize)];
+            SimplePoint* gpuTransformedPointCloud;
             //SimplePoint* gpuInputPointCloud;
             //SimplePoint* gpuOutputPointCloud;
 
@@ -204,10 +195,10 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
             //allocateDepth2CloudMemory(gpuDepthImage, gpuColorImage, depthImage, colorImage, gpuPointCloud, kinectModel, cloudSize);
             //allocateTransformPointsMemory(gpuInputPointCloud, gpuOutputPointCloud, cloudSize);
 
-            allocateMemory(gpuDepthImage, gpuColorImage, depthImage, colorImage, kinectModel, 0.0002, 0.0, 8.0, gpuPointCloud);
+            allocateMemory(gpuDepthImage, gpuColorImage, depthImage, colorImage, kinectModel, 0.0002, 0.0, 8.0, gpuPointCloud, gpuTransformedPointCloud);
 
             //1507->1508
-            for (size_t imageNo=0;imageNo<1;imageNo++)
+            for (size_t imageNo=0;imageNo<1507; imageNo++)
             {
                 std::chrono::steady_clock::time_point begin_test = std::chrono::steady_clock::now();
 
@@ -218,28 +209,16 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
                 timeloadimagepair.addMeasurement(end_load-begin_load);
 
                 // Depth image to point cloud transformation
-                std::chrono::steady_clock::time_point begin_depth2load = std::chrono::steady_clock::now();
-                //CUDADepth2Cloud(gpuDepthImage, depthImage, gpuColorImage, colorImage, kinectModel, 0.0002, 0.0, 8.0, gpuPointCloud, pointCloud, cloudSize);
 
-                CUDAmap(gpuDepthImage, depthImage, gpuColorImage, colorImage, gpuPointCloud, pointCloud);
 
-                std::chrono::steady_clock::time_point end_depth2load = std::chrono::steady_clock::now();
-                timedepth2cloud.addMeasurement(end_depth2load-begin_depth2load);
 
-                /// DEBUG - to be removed
-
-                for(int i = 0; i < 20; ++i)
-                {
-                    std::cout << "image[" << i << "]: x: " << pointCloud[i].x << "; y: " << pointCloud[i].y << "; z: " << pointCloud[i].z <<
-                        "; r: " << pointCloud[i].r << "; g: " << pointCloud[i].g << "; b: " << pointCloud[i].b << std::endl;
-                    std::cout << std::endl;
-                }
-
-                /// END OF DEBUG
 
                 // Camera pose
-                //camPose = walkers::toSE3(Eigen::Vector3d(trajectoryData[imageNo][0], trajectoryData[imageNo][1],trajectoryData[imageNo][2]),
-                //                         Quaternion(trajectoryData[imageNo][6], trajectoryData[imageNo][3], trajectoryData[imageNo][4], trajectoryData[imageNo][5]));
+                camPose = walkers::toSE3(Eigen::Vector3d(trajectoryData[imageNo][0], trajectoryData[imageNo][1],trajectoryData[imageNo][2]),
+                                        Quaternion(trajectoryData[imageNo][6], trajectoryData[imageNo][3], trajectoryData[imageNo][4], trajectoryData[imageNo][5]));
+
+                CUDAmap(gpuDepthImage, depthImage, gpuColorImage, colorImage, gpuPointCloud, camPose, gpuTransformedPointCloud,
+                        timepointtrans, timedepth2cloud);
 
                 // Flatten the matrix into a 1D array
                 // for(int i = 0; i < 4; ++i)
@@ -257,10 +236,9 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
                 // camPoseArray[3 * 4 + 3] = 1.0;
 
                 // Point cloud
-                std::chrono::steady_clock::time_point begin_pointtrans = std::chrono::steady_clock::now();
+
                 //CUDATransformPoints(camPoseArray, pointCloud, outputPointCloud, gpuInputPointCloud, gpuOutputPointCloud, cloudSize);
-                std::chrono::steady_clock::time_point end_pointtrans = std::chrono::steady_clock::now();
-                timepointtrans.addMeasurement(end_pointtrans-begin_pointtrans);
+
 
                 // for(size_t i = 0; i < static_cast<size_t>(cloudSize); i += static_cast<size_t>(cloudSize/50))
                 // {
@@ -326,8 +304,8 @@ void processSimulation(QGLVisualizer* _visu, Gaussmap* map3D)
             // Deallocate memory
             //deallocateDepth2CloudMemory(gpuDepthImage, gpuColorImage, gpuPointCloud);
             //deallocateTransformPointsMemory(gpuInputPointCloud, gpuOutputPointCloud);
-            deallocateMemory(gpuDepthImage, gpuColorImage, gpuPointCloud);
-            delete[] pointCloud;
+            deallocateMemory(gpuDepthImage, gpuColorImage, gpuPointCloud, gpuTransformedPointCloud);
+            //delete[] pointCloud;
             //delete[] outputPointCloud;
 
             state = "";
@@ -446,7 +424,6 @@ int main(int argc, char** argv)
         int pointThreshold = 10;
         std::unique_ptr<mapping::Map> map3D = mapping::createMapGauss(mapSize, resolution, raytraceFactor, pointThreshold);
         ((Gaussmap*)map3D.get())->attachVisualizer(&visu);
-        mapping::PointCloud cloud;
 
         // Run main loop.
         std::thread processThr(processSimulation,&visu, (Gaussmap*)map3D.get());
